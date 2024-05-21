@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        h3 {
+            font-family: Georgia;
+            font-weight: bold;
+            color: white;
+        }
+
+        h3 {
+            font-family: Georgia;
+            font-weight: bold;
+        }
+
+        p {
+            font-family: Georgia;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: #FF4500;
+            background-image: <img src="{% static 'cuppa.jpg' %}"">
+        }
+
+        a{
+            font-weight: bold;
+            font-size: 30px
+        }
+
+    </style>  
+    <div class="text-center"> 
+    <img src="{% static 'coffee.jpg' %}" width="20%" height="20%" class="center"> 
+    
+    </div>
+    <title>homepage</title>
+    <body>
+        <div class="text-center">
+            <br>
+            {% if user.is_authenticated %}
+            <h3>"I have measured out my life<br> with coffee spoons."<br> - T.S. Eliot</h3>
+            <a href="{% url 'drinks' %}">DRINKS |</a>
+            <a href="{% url 'food' %}">FOOD</a>
+            <br>
+            <br>
+                <p>"Welcome to Cup of Java, where every cup tells a story. Our journey began with a passion for crafting exceptional coffee experiences<br> 
+                    from the first sip to the last lingering aroma. Nestled in Stellenbosch, our cosy corner is more than just a coffee shop—it's a hub of creativity,<br> 
+                    community, and caffeine-fueled conversations.
+
+                    We source our beans from local roasters, ensuring freshness and supporting our vibrant coffee culture.<br> 
+                    Step into our world of rich blends, artisanal treats, and the perfect ambiance for moments of inspiration or simply unwinding.<br>
+                    
+                    Indulge in our diverse food menu alongside our coffee offerings. Try our Cheese and Tomato sandwich, the Spicy Crumbed Chicken wrap<br> 
+                    or the BBQ Chicken Pasta Salad. Don't forget to treat yourself to one of our delicious muffins.<br>                    
+                    Join us in celebrating the art of coffee, one cup at a time."
+                </p>
+                <br>
+                <br>
+                <a href="{% url 'goodbye' %}">Log out?</a>
+            {% else %}
+            <div class="alert alert-success" role="alert" style="background-color: #FF4500; border: none;">
+                <h3>Welcome to Cup of Java's website! Please Log in or register</h3>
+
+                <a href="{% url 'signin' %}">Log In |</a>
+                <a href="{% url 'signup' %}">Sign Up  </a>
+            </div>
+         
+            {% endif %}
+            <br>
+            <br>   
+        </div>
+    </body>
+</head>

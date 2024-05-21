@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        h1, h3, h2 {
+            font-family: TaHoma;
+            font-weight: bold;
+        }
+
+        ul {
+            font-family: TaHoma;
+        }
+
+        ul, li, a {
+            font-weight: bold;
+        }
+
+        body {
+            background-color: #FF4500;;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-check-label {
+            display: block;
+            font-weight: bold;
+        }
+
+        /* Adjust radio button position */
+        .form-check-input {
+            margin-left: -3cm;
+        }
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="text-center">
+
+        <h3>Sign up here:</h3>
+        <hr>
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <div>
+                <label for="id_username">Username:</label> <br>
+                <input type="text" id="id_username" name="username" required>
+        
+                {% for error in form.username.errors %}
+                    <small style="color: red">{{ error }}</small>
+                {% endfor %}
+            </div>
+        
+            <div>
+                <label for="id_password1">Password:</label> <br>
+                <input type="password" id="id_password1" name="password1" required>
+        
+                {% for error in form.password1.errors %}
+                    <small style="color: red">{{ error }}</small>
+                {% endfor %}
+            </div>
+        
+            <div>
+                <label for="id_password2">Password Confirmation:</label> <br>
+                <input type="password" id="id_password2" name="password2" required>
+        
+                {% for error in form.password2.errors %}
+                    <small style="color: red">{{ error }}</small>
+                {% endfor %}
+            </div>
+            
+            <button type="submit">Register</button>
+        </form>
+        
+        
+        
