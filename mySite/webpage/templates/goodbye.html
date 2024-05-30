@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        h1, h3, h2 {
+            font-family: TaHoma;
+            font-weight: bold;
+        }
+
+        ul {
+            font-family: TaHoma;
+        }
+
+        ul, li, a {
+            font-weight: bold;
+        }
+
+        body {
+            background-color: #FF4500;;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-check-label {
+            display: block;
+            font-weight: bold;
+        }
+
+        /* Adjust radio button position */
+        .form-check-input {
+            margin-left: -3cm;
+        }
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="text-center">
+{% block content %}
+    <br>
+    <div class="alert alert-success" role="alert" style="background-color: #FF4500; border: none";>
+        <h2 style="text-align: center;">You have opted to log out!</h2>
+    </div>
+   <h3> <a href="{% url 'signin' %}">---> Want to log in again?</a></h3> <br>
+    {% comment %} <a href="{% url 'homepage' %}"><--- Or go back to home.</a> {% endcomment %}
+{% endblock content %}
