@@ -38,4 +38,7 @@ This project is a Django-based web application designed as a capstone project fo
     
 2. **Run the Docker container**:
     docker run -d -p 8000 django
+   
+   **Push the Docker file**:
+4. docker push abrieburger20/django
 
